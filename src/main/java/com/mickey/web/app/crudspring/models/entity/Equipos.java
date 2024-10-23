@@ -2,6 +2,9 @@ package com.mickey.web.app.crudspring.models.entity;
 
 import jakarta.persistence.*;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 
 @Entity
 @Table(name = "equipos")
@@ -17,6 +20,17 @@ public class Equipos {
 
     @Column(name = "id_miembro")
     private Long idMiembro;
+
+    @OneToMany(mappedBy = "idEquipo")
+    private Set<EquiposProyectos> equiposProyectos = new LinkedHashSet<>();
+
+    public Set<EquiposProyectos> getEquiposProyectos() {
+        return equiposProyectos;
+    }
+
+    public void setEquiposProyectos(Set<EquiposProyectos> equiposProyectos) {
+        this.equiposProyectos = equiposProyectos;
+    }
 
     public void setIdEquipo(Long idEquipo) {
         this.idEquipo = idEquipo;

@@ -2,6 +2,9 @@ package com.mickey.web.app.crudspring.models.entity;
 
 import jakarta.persistence.*;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "Empleados_rol")
 public class EmpleadosRol {
@@ -15,6 +18,28 @@ public class EmpleadosRol {
 
     @Column(name = "id_rol")
     private Long idRol;
+
+    @OneToMany(mappedBy = "idEmpleadoRol")
+    private Set<EmpleadosRolProyectos> empleadosRolProyectos = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "idEmpleadoRol")
+    private Set<FasesProyectos> fasesProyectos = new LinkedHashSet<>();
+
+    public Set<FasesProyectos> getFasesProyectos() {
+        return fasesProyectos;
+    }
+
+    public void setFasesProyectos(Set<FasesProyectos> fasesProyectos) {
+        this.fasesProyectos = fasesProyectos;
+    }
+
+    public Set<EmpleadosRolProyectos> getEmpleadosRolProyectos() {
+        return empleadosRolProyectos;
+    }
+
+    public void setEmpleadosRolProyectos(Set<EmpleadosRolProyectos> empleadosRolProyectos) {
+        this.empleadosRolProyectos = empleadosRolProyectos;
+    }
 
     public void setIdEmpleadoRol(Long idEmpleadoRol) {
         this.idEmpleadoRol = idEmpleadoRol;

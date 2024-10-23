@@ -3,6 +3,8 @@ package com.mickey.web.app.crudspring.models.entity;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "proyectos")
@@ -24,6 +26,39 @@ public class Proyectos {
 
     @Column(name = "fase_proyecto")
     private Long faseProyecto;
+
+    @OneToMany(mappedBy = "idProyecto")
+    private Set<EmpleadosRolProyectos> empleadosRolProyectos = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "idProyecto")
+    private Set<EquiposProyectos> equiposProyectos = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "idFase")
+    private Set<FasesProyectos> fasesProyectos = new LinkedHashSet<>();
+
+    public Set<FasesProyectos> getFasesProyectos() {
+        return fasesProyectos;
+    }
+
+    public void setFasesProyectos(Set<FasesProyectos> fasesProyectos) {
+        this.fasesProyectos = fasesProyectos;
+    }
+
+    public Set<EquiposProyectos> getEquiposProyectos() {
+        return equiposProyectos;
+    }
+
+    public void setEquiposProyectos(Set<EquiposProyectos> equiposProyectos) {
+        this.equiposProyectos = equiposProyectos;
+    }
+
+    public Set<EmpleadosRolProyectos> getEmpleadosRolProyectos() {
+        return empleadosRolProyectos;
+    }
+
+    public void setEmpleadosRolProyectos(Set<EmpleadosRolProyectos> empleadosRolProyectos) {
+        this.empleadosRolProyectos = empleadosRolProyectos;
+    }
 
     public void setIdProyecto(Long idProyecto) {
         this.idProyecto = idProyecto;
