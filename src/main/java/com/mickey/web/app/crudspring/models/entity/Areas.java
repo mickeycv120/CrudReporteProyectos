@@ -31,11 +31,11 @@ public class Areas{
     }
 
 
-    public void setidArea(Long idArea) {
+    public void setIdArea(Long idArea) {
         this.idArea = idArea;
     }
 
-    public Long getidArea() {
+    public Long getIdArea() {
         return idArea;
     }
 
