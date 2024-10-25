@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title th:text="${titulo}">Title</title>
+  </head>
+  <body>
+    <h1 th:text="${titulo}"></h1>
 
-</body>
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="areas : ${Areas}">
+          <td th:text="${areas.idArea}"></td>
+            <td th:text="${areas.area}"></td>
+
+        </tr>
+      </tbody>
+    </table>
+  </body>
 </html>

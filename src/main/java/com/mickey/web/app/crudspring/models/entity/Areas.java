@@ -19,7 +19,7 @@ public class Areas{
     @Column(name = "area",length = 70)
     private String area;
 
-    @OneToMany(mappedBy = "idArea")
+    /*@OneToMany(mappedBy = "idArea")
     private Set<LideresAreas> lideresAreas = new LinkedHashSet<>();
 
     public Set<LideresAreas> getLideresAreas() {
@@ -28,7 +28,7 @@ public class Areas{
 
     public void setLideresAreas(Set<LideresAreas> lideresAreas) {
         this.lideresAreas = lideresAreas;
-    }
+    }*/
 
 
     public void setIdArea(Long idArea) {
